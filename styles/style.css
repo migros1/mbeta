@@ -16,6 +16,21 @@ h1 {
     color: #4CAF50;
 }
 
+/* Arama Çubuğu */
+.search-container {
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Kategori Butonları */
 .category-buttons {
     margin: 20px 0;
 }
@@ -35,6 +50,7 @@ h1 {
     background-color: #45a049;
 }
 
+/* Ürünlerin Görünümü */
 .product-results {
     display: flex;
     flex-wrap: wrap;
