@@ -12,6 +12,22 @@
     <form id="query-form">
       <input type="text" id="query" placeholder="Bir ürün adı yazın..." />
       <button type="submit">Gönder</button>
+      <div class="filters">
+        <label for="category">Kategori:</label>
+        <select id="category">
+          <option value="">Tümü</option>
+          <!-- Kategori seçenekleri buraya eklenecek -->
+        </select>
+        <label for="sort">Sırala:</label>
+        <select id="sort">
+          <option value="name-asc">A-Z</option>
+          <option value="name-desc">Z-A</option>
+          <option value="price-asc">Fiyat (Artan)</option>
+          <option value="price-desc">Fiyat (Azalan)</option>
+          <option value="stock-asc">Stok (Artan)</option>
+          <option value="stock-desc">Stok (Azalan)</option>
+        </select>
+      </div>
     </form>
     <div id="result">
       <table>
@@ -24,6 +40,11 @@
         </thead>
         <tbody></tbody>
       </table>
+      <div class="pagination">
+        <button id="prev-page" disabled>Önceki</button>
+        <span id="current-page">1</span> / <span id="total-pages">1</span>
+        <button id="next-page">Sonraki</button>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
