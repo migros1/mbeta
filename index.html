@@ -5,48 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miggy Asistan</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
   <div id="app">
-    <h1>Miggy Asistan</h1>
-    <form id="query-form">
-      <input type="text" id="query" placeholder="Bir ürün adı yazın..." />
-      <button type="submit">Gönder</button>
-      <div class="filters">
-        <label for="category">Kategori:</label>
-        <select id="category">
-          <option value="">Tümü</option>
-          <!-- Kategori seçenekleri buraya eklenecek -->
-        </select>
-        <label for="sort">Sırala:</label>
-        <select id="sort">
-          <option value="name-asc">A-Z</option>
-          <option value="name-desc">Z-A</option>
-          <option value="price-asc">Fiyat (Artan)</option>
-          <option value="price-desc">Fiyat (Azalan)</option>
-          <option value="stock-asc">Stok (Artan)</option>
-          <option value="stock-desc">Stok (Azalan)</option>
-        </select>
+    <div id="loading-screen">
+      <lottie-player src="https://lottie.host/10d7bc46-b7dc-4d60-aaf5-1ed6f633c333/hVTdNF0dWX.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </div>
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="https://www.migros.com.tr/static/img/migros-logo.svg" alt="Migros Logo">
+        </div>
+        <form id="query-form">
+          <div class="search-container">
+            <input type="text" id="query" placeholder="Ürün, kategori veya marka ara..." />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+        <div class="header-actions">
+          <a href="#" class="header-link">Kampanyalar</a>
+          <a href="#" class="header-link">Mağazalar</a>
+          <a href="#" class="header-link">Migros Cüzdan</a>
+        </div>
       </div>
-    </form>
+    </header>
     <div id="result">
-      <table>
-        <thead>
-          <tr>
-            <th>Ürün</th>
-            <th>Kodu</th>
-            <th>Görsel</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="product-list">
+        <!-- Ürün bilgileri burada görüntülenecek -->
+      </div>
       <div class="pagination">
-        <button id="prev-page" disabled>Önceki</button>
+        <button id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
         <span id="current-page">1</span> / <span id="total-pages">1</span>
-        <button id="next-page">Sonraki</button>
+        <button id="next-page"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
+
+  <!-- Stok kontrolü penceresi -->
+  <div id="stock-control-modal" class="modal">
+    <div class="modal-content">
+      <h2>Stok Kontrolü</h2>
+      <p>Stok Kontolü yapmak için Migros.com.tr adresinden üye girişi yapmanız gerekmektedir! Aksi halide ilgili ürünün stok bilgilerini göremezsiniz.</p>
+      <button id="modal-close-btn">Tamam</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
